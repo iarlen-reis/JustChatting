@@ -1,0 +1,46 @@
+.button__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.button__container span {
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+  font-size: var(--size-xl);
+}
+
+.login__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  font-size: var(--size-lg);
+  font-weight: 600;
+
+  gap: var(--gap-3);
+  padding: var(--gap-3) var(--gap-4);
+
+  border: none;
+  outline: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.4s;
+}
+
+.login__button:hover {
+  opacity: 1;
+}
+
+.login__button:nth-child(1) {
+  color: #fff;
+  background: #B12F31;
+}
+
+.login__button:nth-child(3) {
+  color: #fff;
+  background: var(--color-dark);
+}
