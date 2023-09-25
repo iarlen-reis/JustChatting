@@ -1,0 +1,30 @@
+.aside__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-3);
+
+  margin-top: var(--gap-3);
+}
+
+.aside__groups > span {
+  text-transform: uppercase;
+  font-size: var(--size-sm);
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.group__list {
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+
+  overflow-y: auto;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-3);
+}

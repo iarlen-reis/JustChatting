@@ -1,0 +1,33 @@
+.aside__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aside__footer button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+.aside__footer a {
+  opacity: 0.9;
+}
+
+.aside__footer a:hover {
+  opacity: 1;
+}
+
+.aside__footer img {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 20px;
+  transition: all 0.4s;
+}
+
+.aside__footer img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
