@@ -1,12 +1,61 @@
-.chat { 
-  width: 100%;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: var(--gap-4);
-  
+.message__self {
   padding: var(--gap-3);
-  overflow-y: auto;
+  border-radius: 4px;
+}
+
+.message__self {
+  display: flex;
+  align-self: flex-end;
+
+  background: var(--color-white);
+  gap: var(--gap-3);
+}
+
+.message__self img {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 24px;
+}
+
+.message__self .message__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-3);
+}
+
+.message__self .message__details p {
+  max-width: 400px;
+  font-size: var(--size-lg);
+}
+
+.message__self .message__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-2);
+}
+
+.message__self .message__header span:nth-child(1) {
+  text-transform: capitalize;
+}
+
+.message__self .message__header span:nth-child(1) {
+  text-align: right;
+  font-weight: bold;
+  font-size: var(--size-lg);
+}
+
+.message__self .message__header span:nth-child(2) {
+  font-size: var(--size-sm);
+  font-weight: 500;
+}
+
+.message__self .message__info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-4);
 }
 
 .message__other {
@@ -25,48 +74,46 @@
   border-radius: 24px;
 }
 
-.message__self,
 .message__other {
   padding: var(--gap-3);
   border-radius: 4px;
 }
 
-.message__self {
+.message__other .message__details {
   display: flex;
-  align-items: center;
-  align-self: flex-end;
-
-  background: var(--color-white);
+  flex-direction: column;
   gap: var(--gap-3);
 }
 
-.message__details span {
+.message__other .message__details p {
+  max-width: 400px;
+  font-size: var(--size-lg);
+}
+
+.message__other .message__info {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-4);
+}
+
+.message__other .message__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.message__other .message__header span {
+  text-align: left;
+}
+
+.message__other .message__header span:nth-child(1) {
+  font-weight: bold;
   text-transform: capitalize;
+  font-size: var(--size-lg);
 }
 
-.message__self span {
-  text-align: right;
-}
-
-.message__self img {
-  width: 48px;
-  height: 48px;
-
-  border-radius: 24px;
-}
-
-.message__details {
+.message__other .message__header {
   display: flex;
   flex-direction: column;
   gap: var(--gap-1);
-}
-
-.message__details span {
-  font-size: var(--size-lg);
-  font-weight: bold;
-}
-
-.message__details p {
-  max-width: 400px;
-  font-size: var(--size-md);
 }
