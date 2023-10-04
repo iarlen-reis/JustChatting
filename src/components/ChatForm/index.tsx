@@ -1,5 +1,5 @@
 'use client'
-import { socket } from '@/utils/socket'
+import socket from '@/utils/socket'
 import { SendIcon } from 'lucide-react'
 import styles from './ChatForm.module.css'
 import { useSession } from 'next-auth/react'
@@ -18,12 +18,8 @@ const ChatForm = ({ id }: IChatFormProps) => {
   const methods = useForm<IFormProps>()
 
   const handleSubmit = (data: IFormProps) => {
-    if (!session?.user) {
+    if (!session?.user || !data.text.trim().length) {
       return null
-    }
-
-    if (!data.text.trim().length) {
-      return
     }
 
     const message = {
@@ -32,7 +28,7 @@ const ChatForm = ({ id }: IChatFormProps) => {
       groupId: id,
     }
 
-    socket.emit('group-message', message)
+    socket.emit('message', message)
 
     methods.reset()
   }

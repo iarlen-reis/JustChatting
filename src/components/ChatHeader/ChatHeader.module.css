@@ -1,0 +1,42 @@
+.chat__header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--gap-3);
+  padding: var(--gap-2) var(--gap-3);
+
+  color: var(--color-white);
+  background: var(--color-purple);
+}
+
+.chat__title {
+  font-size: var(--size-2xl);
+
+  text-transform: capitalize;
+}
+
+.chat__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-4);
+}
+
+.chat__actions button {
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  transition: all 0.4s;
+  background: transparent;
+}
+
+.chat__actions svg {
+  opacity: 0.9;
+}
+
+.chat__actions svg:hover {
+  opacity: 1;
+}

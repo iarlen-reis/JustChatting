@@ -42,3 +42,7 @@
 .chat__button:hover {
   opacity: 1;
 }
+
+.chat__button:disabled {
+  background: var(--color-gray);
+}
