@@ -33,10 +33,16 @@
   background: transparent;
 }
 
+.aside__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-3);
+}
+
 .home__link:hover {
   opacity: 0.8;
 }
 
-.create__link svg:hover {
+.aside__link svg:hover {
   opacity: 0.8;
 }

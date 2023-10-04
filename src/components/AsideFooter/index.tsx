@@ -22,12 +22,12 @@ const AsideFooter = () => {
       <button onClick={handleLogout}>
         <LogOutIcon size={28} color="#fff" />
       </button>
-      <Link href="/profile">
+      <Link href="/chats/profile">
         <Image
           src={session.user.image ?? GroupImage}
           alt="profile"
-          width={40}
-          height={40}
+          width={80}
+          height={80}
         />
       </Link>
     </div>

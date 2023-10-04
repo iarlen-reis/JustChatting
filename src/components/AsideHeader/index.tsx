@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styles from './AsideHeader.module.css'
-import { HomeIcon, PlusIcon } from 'lucide-react'
+import { Contact, HomeIcon, PlusIcon } from 'lucide-react'
 
 const AsideHeader = () => {
   return (
@@ -8,9 +8,14 @@ const AsideHeader = () => {
       <Link href="/chats" className={styles.home__link}>
         <HomeIcon color="white" /> JustChatting
       </Link>
-      <Link href="/chats/create" className={styles.create__link}>
-        <PlusIcon color="white" />
-      </Link>
+      <div className={styles.aside__actions}>
+        <Link href="/chats/contact" className={styles.aside__link}>
+          <Contact color="white" />
+        </Link>
+        <Link href="/chats/create" className={styles.aside__link}>
+          <PlusIcon color="white" />
+        </Link>
+      </div>
     </div>
   )
 }
