@@ -1,0 +1,37 @@
+.aside__mobile {
+  width: 70px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--gap-4);
+  padding: var(--gap-3);
+
+  color: var(--color-white);
+  background: rgb(43,37,118);
+  background: linear-gradient(180deg, rgba(43,37,118,1) 0%, rgba(85,71,156,1) 100%);
+}
+
+.aside__mobile__button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+.aside__mobile img {
+  width: 40px;
+  height: 40px;
+
+  object-fit: cover;
+  border-radius: 20px;
+  transition: all 0.4s;
+}
+
+.aside__mobile img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
