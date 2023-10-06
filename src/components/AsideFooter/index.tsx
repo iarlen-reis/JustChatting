@@ -19,10 +19,10 @@ const AsideFooter = () => {
 
   return (
     <div className={styles.aside__footer}>
-      <button onClick={handleLogout}>
+      <button onClick={handleLogout} title="sair" aria-label="botão de sair">
         <LogOutIcon size={28} color="#fff" />
       </button>
-      <Link href="/chats/profile">
+      <Link href="/chats/profile" title="perfil" aria-label="página de perfil">
         <Image
           src={session.user.image ?? GroupImage}
           alt="profile"

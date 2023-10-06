@@ -1,20 +1,34 @@
+'use client'
 import Link from 'next/link'
 import styles from './AsideHeader.module.css'
-import { Contact, HomeIcon, PlusIcon } from 'lucide-react'
+import { HomeIcon, Minimize2Icon, PenSquareIcon } from 'lucide-react'
 
-const AsideHeader = () => {
+interface IAsideHeaderProps {
+  handleMenu: () => void
+}
+
+const AsideHeader = ({ handleMenu }: IAsideHeaderProps) => {
   return (
     <div className={styles.aside__header}>
       <Link href="/chats" className={styles.home__link}>
         <HomeIcon color="white" /> JustChatting
       </Link>
       <div className={styles.aside__actions}>
-        <Link href="/chats/contact" className={styles.aside__link}>
-          <Contact color="white" />
+        <Link
+          href="/chats/create"
+          className={styles.aside__link}
+          title="criar grupo"
+          aria-label="Criar um novo grupo"
+        >
+          <PenSquareIcon color="white" />
         </Link>
-        <Link href="/chats/create" className={styles.aside__link}>
-          <PlusIcon color="white" />
-        </Link>
+        <button
+          onClick={handleMenu}
+          title="Fechar"
+          aria-label="Fechar menu lateral"
+        >
+          <Minimize2Icon color="white" />
+        </button>
       </div>
     </div>
   )
