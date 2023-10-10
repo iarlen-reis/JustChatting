@@ -2,7 +2,7 @@
   width: 100%;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--color-purple);
 }
 
 .header__container {
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 1rem 1.2rem;
+  padding: 1.2rem 1.2rem;
 
   margin: 0 auto;
 }
@@ -34,4 +34,23 @@
 
 .header__logo span {
   font-weight: bold;
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-4);
+}
+
+.header__links a {
+  text-transform: uppercase;
+  font-size: var(--size-base);
+
+  transition: all 0.4s;
+  color: white;
+}
+
+.header__links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }

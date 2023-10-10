@@ -2,8 +2,10 @@
   width: 100%;
   padding: 1rem 1.2rem;
 
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
   color: white;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--color-purple);
 }
 
 .footer__container {
@@ -17,7 +19,7 @@
 .footer__links {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: var(--gap-2);
 }
 
