@@ -7,7 +7,7 @@
 }
 
 .chat__input {
-  flex: 1;
+  width: 100%;
   font-size: var(--size-lg);
 
   border: none;
@@ -27,7 +27,7 @@
   justify-content: center;
 
   height: 100%;
-  width: 3.4rem;
+  width: 3rem;
   
   border: none;
   outline: none;
@@ -45,4 +45,15 @@
 
 .chat__button:disabled {
   background: var(--color-gray);
+}
+
+@media (min-width: 768px) {
+  .chat__button {
+    width: 3.4rem;
+  }
+
+  .chat__input {
+    flex: 1;
+    width: 100%;
+  }
 }

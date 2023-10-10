@@ -26,7 +26,8 @@
 
 .message__self .message__details p {
   max-width: 400px;
-  font-size: var(--size-lg);
+  font-size: var(--size-md);
+  line-height: 1.4rem;
 }
 
 .message__self .message__header {
@@ -87,7 +88,8 @@
 
 .message__other .message__details p {
   max-width: 400px;
-  font-size: var(--size-lg);
+  font-size: var(--size-md);
+  line-height: 1.4rem;
 }
 
 .message__other .message__info {
@@ -116,4 +118,24 @@
   display: flex;
   flex-direction: column;
   gap: var(--gap-1);
+}
+
+
+@media (min-width: 768px) {
+  .message__self .message__details p,
+  .message__other .message__details p {
+    font-size: var(--size-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .message__self .message__details p,
+  .message__other .message__details p {
+    font-size: var(--size-xl);
+  }
+
+  .message__self .message__header span:nth-child(1),
+  .message__other .message__header span:nth-child(1) {
+    font-size: var(--size-xl);
+  }
 }
