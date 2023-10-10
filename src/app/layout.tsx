@@ -1,15 +1,15 @@
+import Providers from '@/components/providers'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Josefin_Sans, Lilita_One } from 'next/font/google'
+import { Josefin_Sans as Jose, Lilita_One as Lilita } from 'next/font/google'
 
-
-const josefin = Josefin_Sans({
+const josefin = Jose({
   subsets: ['latin'],
   variable: '--font-body',
   weight: ['300', '400', '500', '600', '700'],
 })
 
-const lilita = Lilita_One({
+const lilita = Lilita({
   subsets: ['latin'],
   variable: '--font-title',
   weight: ['400'],
@@ -28,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${josefin.variable} ${lilita.variable}`}>
-        <main className='container'>{children}</main>
+        <main className="main__container">
+          <Providers>{children}</Providers>
+        </main>
       </body>
     </html>
   )
