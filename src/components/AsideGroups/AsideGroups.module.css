@@ -1,5 +1,6 @@
 .aside__groups {
   display: flex;
+  width: 100%;
   flex-direction: column;
   flex: 1;
   gap: var(--gap-3);
