@@ -1,3 +1,4 @@
+import { formatName } from '@/utils/formatName'
 import React from 'react'
 
 interface GroupParticipantNameProps {
@@ -5,7 +6,8 @@ interface GroupParticipantNameProps {
 }
 
 const GroupParticipantName = ({ name }: GroupParticipantNameProps) => {
-  return <span>{name}</span>
+  const formatedName = formatName(name)
+  return <span>{formatedName}</span>
 }
 
 export default GroupParticipantName
