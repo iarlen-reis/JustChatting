@@ -43,7 +43,7 @@ const Chat = ({ hook, id }: IChat) => {
       {messages &&
         messages.map((message) => {
           return message.creator.email === session?.user?.email ? (
-            <ChatMessage.Root type="self">
+            <ChatMessage.Root type="self" key={message.id}>
               <ChatMessage.Info>
                 <ChatMessage.Header>
                   <ChatMessage.Name name={message.creator.name} />
@@ -57,16 +57,16 @@ const Chat = ({ hook, id }: IChat) => {
               <ChatMessage.Text text={message.text} />
             </ChatMessage.Root>
           ) : (
-            <ChatMessage.Root type="other">
+            <ChatMessage.Root type="other" key={message.id}>
               <ChatMessage.Info>
-                <ChatMessage.Header>
-                  <ChatMessage.Name name={message.creator.name} />
-                  <ChatMessage.CreatedAt createdAt={message.createdAt} />
-                </ChatMessage.Header>
                 <ChatMessage.Image
                   image={message.creator.image}
                   name={message.creator.name}
                 />
+                <ChatMessage.Header>
+                  <ChatMessage.Name name={message.creator.name} />
+                  <ChatMessage.CreatedAt createdAt={message.createdAt} />
+                </ChatMessage.Header>
               </ChatMessage.Info>
               <ChatMessage.Text text={message.text} />
             </ChatMessage.Root>
