@@ -1,8 +1,13 @@
+'use client'
+import Chat from '@/components/Chat'
 import styles from './GroupPage.module.css'
 import ChatForm from '@/components/ChatForm'
 import ChatHeader from '@/components/ChatHeader'
-import ChatMessage from '@/components/ChatMessage'
-import axios from 'axios'
+import { useMessageGroup } from '@/hooks/useMessageGroup'
+import { useSession } from 'next-auth/react'
+import { useMembersGroup } from '@/hooks/useMembersGroup'
+import { redirect } from 'next/navigation'
+import { useEffect } from 'react'
 
 interface GroupPageProps {
   params: {
@@ -10,24 +15,25 @@ interface GroupPageProps {
   }
 }
 
-interface IGroupProps {
-  group: {
-    id: string
-    name: string
-  }
-}
+const GroupPage = ({ params }: GroupPageProps) => {
+  const { data: session } = useSession()
+  const { group } = useMembersGroup(params.id)
 
-const GroupPage = async ({ params }: GroupPageProps) => {
-  const response = await axios.get<IGroupProps>(
-    `http://localhost:3333/group/${params.id}`,
-  )
+  const email = session?.user?.email as string
 
-  const group = response.data.group
+  const isAllowed =
+    group?.members.findIndex((member) => member.email === email) !== -1
+
+  useEffect(() => {
+    if (!isAllowed) {
+      return redirect('/chats')
+    }
+  }, [isAllowed])
 
   return (
     <div className={styles.group__page}>
-      <ChatHeader name={group.name} id={group.id} />
-      <ChatMessage id={params.id} />
+      <ChatHeader id={params.id} />
+      <Chat hook={useMessageGroup} id={params.id} />
       <ChatForm id={params.id} />
     </div>
   )
