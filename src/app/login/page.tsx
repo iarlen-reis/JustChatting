@@ -2,11 +2,10 @@
 import Image from 'next/image'
 import styles from './Login.module.css'
 import { signIn } from 'next-auth/react'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { FcGoogle } from 'react-icons/fc'
 import { VscGithub } from 'react-icons/vsc'
 import LoginImage from 'public/images/login.png'
+import HeaderFooter from '@/components/HeaderFooter'
 import { LoginButton } from '@/components/LoginButton'
 import LoginMobileImage from 'public/images/login-mobile.png'
 
@@ -19,8 +18,7 @@ const Login = () => {
     signIn('github')
   }
   return (
-    <>
-      <Header />
+    <HeaderFooter>
       <div className={styles.container}>
         <div className={styles.login}>
           <div className={styles.login__image}>
@@ -63,8 +61,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+    </HeaderFooter>
   )
 }
 
