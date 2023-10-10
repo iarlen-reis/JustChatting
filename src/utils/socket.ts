@@ -1,3 +1,7 @@
-import { io } from 'socket.io-client'
+import { io, Socket } from 'socket.io-client'
 
-export const socket = io('http://localhost:3333')
+const socket: Socket = io('http://localhost:3333')
+
+socket.connect()
+
+export default socket
