@@ -1,5 +1,5 @@
-import { socket } from '@/utils/socket'
-import { useSession } from 'next-auth/react'
+import socket from '@/utils/socket'
+
 import { useEffect, useState } from 'react'
 
 interface IMessageProps {
@@ -16,35 +16,29 @@ interface IMessageProps {
 
 interface IUseMessageGroup {
   messages: IMessageProps[]
-  loading: boolean
 }
 
 export const useMessageGroup = (id: string): IUseMessageGroup => {
   const [messages, setMessages] = useState<IMessageProps[]>([])
-  const [loading, setLoading] = useState(false)
-  const { data: session } = useSession()
 
   useEffect(() => {
     socket.connect()
     socket.emit('join-group', id)
-    setLoading(true)
 
-    if (!session?.user?.email) return
+    socket.on(id, (oldMessages: IMessageProps[]) => {
+      setMessages(oldMessages)
+    })
 
-    socket.emit('group-messages', session?.user?.email)
-
-    socket.on(id, (newMessage: IMessageProps[]) => {
-      setMessages(newMessage)
-      setLoading(false)
+    socket.on('message', (newMessage: IMessageProps) => {
+      setMessages((prevMessages) => [...prevMessages, newMessage])
     })
 
     return () => {
       socket.disconnect()
     }
-  }, [id, session])
+  }, [id])
 
   return {
     messages,
-    loading,
   }
 }

@@ -1,11 +1,12 @@
-import { socket } from '@/utils/socket'
-import { useSession } from 'next-auth/react'
+import socket from '@/utils/socket'
 import { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
 
 interface IGroupProps {
   id: string
   name: string
   updatedAt: string
+  image: string
 }
 
 interface IUseGroups {
@@ -19,21 +20,19 @@ export const useGroups = (): IUseGroups => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    socket.connect()
     setLoading(true)
-
     if (!session?.user?.email) return
 
-    socket.emit('groups', session?.user?.email)
+    socket.emit('groups', session.user.email)
 
-    socket.on('user-groups', (data: IGroupProps[]) => {
-      console.log(data)
+    socket.on(session.user.email, (data: IGroupProps[]) => {
       setGroups(data)
       setLoading(false)
     })
 
     return () => {
-      socket.disconnect()
+      if (!session?.user?.email) return
+      socket.off(session.user.email)
     }
   }, [session?.user?.email])
 
