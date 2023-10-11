@@ -1,7 +1,9 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './AsideHeader.module.css'
-import { HomeIcon, Minimize2Icon, PenSquareIcon } from 'lucide-react'
+import LogoImage from '/public/images/logo.png'
+import { Minimize2Icon, PenSquareIcon } from 'lucide-react'
 
 interface IAsideHeaderProps {
   handleMenu: () => void
@@ -11,7 +13,12 @@ const AsideHeader = ({ handleMenu }: IAsideHeaderProps) => {
   return (
     <div className={styles.aside__header}>
       <Link href="/chats" className={styles.home__link}>
-        <HomeIcon color="white" /> JustChatting
+        <Image
+          src={LogoImage}
+          alt="Logo da aplicação JustChatting"
+          width={120}
+          height={20}
+        />
       </Link>
       <div className={styles.aside__actions}>
         <Link
