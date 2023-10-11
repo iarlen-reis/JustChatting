@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
-import { PlusIcon, TrashIcon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import styles from './MembersPage.module.css'
+import { PlusIcon, TrashIcon } from 'lucide-react'
 import { InputField } from '@/components/InputField'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useMembersGroup } from '@/hooks/useMembersGroup'
@@ -21,8 +21,14 @@ interface IFormProps {
 const MembersPage = ({ params }: IMembersPageProps) => {
   const methods = useForm<IFormProps>()
   const { data: session } = useSession()
-  const { group, fetchingGroup, handleAddMember, handleRemoveMember } =
-    useMembersGroup(params.id)
+  const {
+    group,
+    fetchingGroup,
+    handleAddMember,
+    handleRemoveMember,
+    addMemberLoading,
+    removerMemberLoading,
+  } = useMembersGroup(params.id)
 
   const handleSubmit = (data: IFormProps) => {
     handleAddMember({ ...data, groupId: params.id })
@@ -56,7 +62,7 @@ const MembersPage = ({ params }: IMembersPageProps) => {
                   required: 'E-mail é obrigatório',
                 }}
               />
-              <button type="submit">
+              <button type="submit" disabled={addMemberLoading}>
                 <PlusIcon size={20} color="#fff" />
                 Adicionar
               </button>
@@ -84,12 +90,14 @@ const MembersPage = ({ params }: IMembersPageProps) => {
                     email={member.email}
                     createdBy={group.createdBy}
                   >
-                    <GroupParticipant.Action
-                      icon={TrashIcon}
-                      colorIcon="#f00"
-                      email={member.email}
-                      handleRemoveMember={handleRemove}
-                    />
+                    {!removerMemberLoading && (
+                      <GroupParticipant.Action
+                        icon={TrashIcon}
+                        colorIcon="#f00"
+                        email={member.email}
+                        handleRemoveMember={handleRemove}
+                      />
+                    )}
                   </GroupParticipant.ActionConditional>
                 </GroupParticipant.Actions>
               </GroupParticipant.Root>
