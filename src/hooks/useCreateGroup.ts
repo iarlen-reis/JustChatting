@@ -7,6 +7,10 @@ interface IGroupProps {
   createdBy: string
 }
 
+interface IGroupResponse {
+  loading: boolean
+}
+
 interface IUseCreateGroup {
   handleCreateGroup: (group: IGroupProps) => void
   loading: boolean
@@ -17,10 +21,11 @@ export const useCreateGroup = (): IUseCreateGroup => {
 
   const handleCreateGroup = (group: IGroupProps) => {
     setLoading(true)
-    setTimeout(() => {
-      socket.emit('create-group', group)
-      setLoading(false)
-    }, 1000)
+    socket.emit('create-group', group)
+
+    socket.on('create-group', ({ loading }: IGroupResponse) => {
+      setLoading(loading)
+    })
   }
 
   return {

@@ -1,13 +1,13 @@
 'use client'
-import { FormProvider, useForm } from 'react-hook-form'
+import Image from 'next/image'
+import { toast } from 'react-toastify'
+import { useSession } from 'next-auth/react'
 import styles from './CreateGroup.module.css'
 import { InputField } from '@/components/InputField'
-import { useSession } from 'next-auth/react'
 import { ChangeEvent, useState, useRef } from 'react'
-import Image from 'next/image'
-import GroupImage from '/public/images/default-group.png'
+import { FormProvider, useForm } from 'react-hook-form'
 import { useCreateGroup } from '@/hooks/useCreateGroup'
-import { toast } from 'react-toastify'
+import GroupImage from '/public/images/default-group.png'
 
 interface IFormProps {
   name: string
