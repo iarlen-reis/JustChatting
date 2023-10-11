@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="/public/images/github/home.png" alt="image da pagina inicial da aplicação">
+<img src="/public/images/github/group.png" alt="imagem de um grupo da aplicação">
 
-## Getting Started
+### JustChatting
 
-First, run the development server:
+<p>
+    JustChatting é uma aplicação desenvolvida com o framework Next.js, TypeScript, NextAuth e socket.io. A aplicação funciona semelhante a uma rede social de comunicação, como
+    por exemplo, Telegram e WhatsApp. Onde usuários podem criar grupos, adicionar membros e conversar em tempo real.
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<p>
+  A aplicação possui uma página de Login, onde o usuário pode fazer login a partir de um provedor, como Github e Google. O usuário pode criar grupos e adicionar outros usuários (cadastrados) ao seu grupo e com isso os membros do grupo podem conversar em tempo real.
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>
+  A aplicação também possui uma página de detalhes do groupo, onde todos os participantes podem
+  ver por quem o grupo foi criado e os membros do grupo. Os usuários do grupo podem sair dele a qualquer momento, o criador do grupo pode remover ou adicionar novos membros.
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
+- [x] Responsividade.
+- [x] Autenticação com GitHub e Google.
+- [x] Criar, visualizar e deletar Grupos.
+- [x] Adicionar e remover membros do grupo.
+- [x] Pagina de detalhes do grupo e profile.
+- [ ] Funcionalidade de adicionar contatos e chat privado.
+- [ ] Funcionalidade de promover usuários a administradores do grupo.
+- [ ] Funcionalidade de enviar imagens e arquivos no grupo/chat privado.
+- [ ] Testes unitários e de integração dos componentes e páginas.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Ferramentas
 
-## Learn More
+Ferramentas utilizadas no desenvolvimento.
 
-To learn more about Next.js, take a look at the following resources:
+[@NextJs](https://nextjs.org/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[@TypeScript](https://www.typescriptlang.org/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[@NextAuth](https://next-auth.js.org/)
 
-## Deploy on Vercel
+[@Socket.io](https://socket.io/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[@ReactToastify](https://fkhadra.github.io/react-toastify/introduction)
