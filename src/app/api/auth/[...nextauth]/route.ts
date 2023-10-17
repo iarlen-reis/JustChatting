@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user }) {
-      await axios.post('http://localhost:3333/users', {
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users`, {
         email: user.email,
         name: user.name,
         image: user.image,
