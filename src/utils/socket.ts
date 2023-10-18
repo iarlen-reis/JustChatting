@@ -1,6 +1,8 @@
 import { io, Socket } from 'socket.io-client'
 
-const socket: Socket = io(`${process.env.NEXT_PUBLIC_BACKEND_URL}`)
+const socket: Socket = io(
+  'https://justchatting-back-end-production.up.railway.app',
+)
 
 socket.connect()
 

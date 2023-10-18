@@ -17,11 +17,14 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user }) {
-      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users`, {
-        email: user.email,
-        name: user.name,
-        image: user.image,
-      })
+      await axios.post(
+        'https://justchatting-back-end-production.up.railway.app/users',
+        {
+          email: user.email,
+          name: user.name,
+          image: user.image,
+        },
+      )
       return true
     },
   },
