@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './Profile.module.css'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/utils/authOptions'
 
 const ProfilePage = async () => {
   const session = await getServerSession(authOptions)

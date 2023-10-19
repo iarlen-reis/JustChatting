@@ -3,7 +3,7 @@ import styles from './Chats.module.css'
 import axios from 'axios'
 import { getServerSession } from 'next-auth'
 import TalkingImage from '/public/images/talking.png'
-import { authOptions } from '../api/auth/[...nextauth]/route'
+import { authOptions } from '@/utils/authOptions'
 
 const Chats = async () => {
   const session = await getServerSession(authOptions)
